@@ -1,0 +1,13 @@
+# How to build NVDLA SystemC model
+
+You have to build the NVDLA SystemC model (cmod) manually at the moment.
+
+```
+cd hw
+make
+tools/bin/tmake -build cmod_top
+```
+
+It is important to execute NVDLA with:
+
+export SC_SIGNAL_WRITE_CHECK=DISABLE

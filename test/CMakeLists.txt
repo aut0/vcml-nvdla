@@ -1,0 +1,23 @@
+ ##############################################################################
+ #                                                                            #
+ # Copyright 2020 Lukas Jünger                                                #
+ #                                                                            #
+ # Licensed under the Apache License, Version 2.0 (the "License");            #
+ # you may not use this file except in compliance with the License.           #
+ # You may obtain a copy of the License at                                    #
+ #                                                                            #
+ #     http://www.apache.org/licenses/LICENSE-2.0                             #
+ #                                                                            #
+ # Unless required by applicable law or agreed to in writing, software        #
+ # distributed under the License is distributed on an "AS IS" BASIS,          #
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   #
+ # See the License for the specific language governing permissions and        #
+ # limitations under the License.                                             #
+ #                                                                            #
+ ##############################################################################
+
+add_subdirectory(googletest EXCLUDE_FROM_ALL)
+add_executable(vcml-nvdla_bdma_test nvdla_bdma_test.cpp)
+target_link_libraries(vcml-nvdla_bdma_test vcml-nvdla gtest gmock)
+target_link_libraries(vcml-nvdla_bdma_test ${NVDLA_CMOD_LIBRARIES})
+add_test(NAME vcml-nvdla_bdma_test COMMAND vcml-nvdla_test ${CMAKE_CURRENT_SOURCE_DIR})

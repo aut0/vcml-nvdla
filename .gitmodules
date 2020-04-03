@@ -1,0 +1,9 @@
+[submodule "deps/nvdla_hw"]
+	path = deps/nvdla_hw
+	url = https://github.com/nvdla/hw.git
+[submodule "deps/vcml"]
+	path = deps/vcml
+	url = https://github.com/janweinstock/vcml 
+[submodule "test/googletest"]
+	path = test/googletest
+	url = https://github.com/google/googletest
