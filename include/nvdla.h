@@ -19,27 +19,27 @@
 #ifndef NVDLA_VCML_H
 #define NVDLA_VCML_H
 
-#include "common.h"
+#include "vcml.h"
 #include "NV_nvdla.h"
 
 namespace xonx {
-class nvdla : public vcml::peripheral {
-private:
-    scsim::cmod::NV_nvdla *m_nvdla;
-    vcml::bus_width_adapter<32,64> m_sram_adapter;
-    vcml::bus_width_adapter<32,64> m_dbb_adapter;
-    vcml::bus_width_adapter<64,32> m_config_adapter;
-public:
-    tlm::tlm_initiator_socket<64> SRAM_IF;
-    tlm::tlm_initiator_socket<64> DBB_IF;
-    tlm::tlm_target_socket<64>    CONFIG_IF;
-    vcml::out_port<bool> IRQ;
+    class nvdla : public vcml::peripheral {
+    private:
+        scsim::cmod::NV_nvdla *m_nvdla;
+        vcml::bus_width_adapter<32,64> m_sram_adapter;
+        vcml::bus_width_adapter<32,64> m_dbb_adapter;
+        vcml::bus_width_adapter<64,32> m_config_adapter;
+    public:
+        tlm::tlm_initiator_socket<64> SRAM_IF;
+        tlm::tlm_initiator_socket<64> DBB_IF;
+        tlm::tlm_target_socket<64>    CONFIG_IF;
+        vcml::out_port<bool> IRQ;
 
-    nvdla() = delete;
-    nvdla(const nvdla&) = delete;
+        nvdla() = delete;
+        nvdla(const nvdla&) = delete;
 
-    nvdla(const sc_core::sc_module_name& nm);
-    ~nvdla();
-};
-}
+        nvdla(const sc_core::sc_module_name& nm);
+        ~nvdla();
+    };
+} // namespace xonx
 #endif //NVDLA_VCML_H

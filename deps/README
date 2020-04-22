@@ -3,7 +3,7 @@
 You have to build the NVDLA SystemC model (cmod) manually at the moment.
 
 ```
-cd hw
+cd nvdla_hw
 make
 tools/bin/tmake -build cmod_top
 ```

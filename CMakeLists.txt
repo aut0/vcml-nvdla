@@ -32,7 +32,9 @@ if(NOT EXISTS ${VCML_HOME})
     set(VCML_HOME ${CMAKE_CURRENT_SOURCE_DIR}/deps/vcml)
 endif()
 
-add_subdirectory(${VCML_HOME} vcml EXCLUDE_FROM_ALL)
+if (NOT TARGET vcml)
+    add_subdirectory(${VCML_HOME} vcml EXCLUDE_FROM_ALL)
+endif()
 
 set(src "${CMAKE_CURRENT_SOURCE_DIR}/src")
 set(inc "${CMAKE_CURRENT_SOURCE_DIR}/include")
@@ -41,7 +43,9 @@ set(sources
     "${src}/nvdla.cpp")
 
 add_library(vcml-nvdla ${sources})
+target_link_libraries(vcml-nvdla ${NVDLA_CMOD_LIBRARIES})
 target_link_libraries(vcml-nvdla vcml)
+target_link_libraries(vcml-nvdla ${SYSTEMC_LIBRARY})
 target_include_directories(vcml-nvdla PUBLIC ${inc})
 target_include_directories(vcml-nvdla SYSTEM PUBLIC ${NVDLA_CMOD_INCLUDE_DIR})
 

@@ -19,5 +19,4 @@
 add_subdirectory(googletest EXCLUDE_FROM_ALL)
 add_executable(vcml-nvdla_bdma_test nvdla_bdma_test.cpp)
 target_link_libraries(vcml-nvdla_bdma_test vcml-nvdla gtest gmock)
-target_link_libraries(vcml-nvdla_bdma_test ${NVDLA_CMOD_LIBRARIES})
 add_test(NAME vcml-nvdla_bdma_test COMMAND vcml-nvdla_test ${CMAKE_CURRENT_SOURCE_DIR})
