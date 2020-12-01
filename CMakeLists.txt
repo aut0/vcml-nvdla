@@ -50,6 +50,7 @@ target_include_directories(vcml-nvdla PUBLIC ${inc})
 target_include_directories(vcml-nvdla SYSTEM PUBLIC ${NVDLA_CMOD_INCLUDE_DIR})
 
 install(TARGETS vcml-nvdla DESTINATION lib)
+install(FILES ${NVDLA_CMOD_LIBRARIES} DESTINATION lib)
 install(DIRECTORY ${inc}/ DESTINATION include)
 
 if(VCML_NVDLA_BUILD_TESTS)
